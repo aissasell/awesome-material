@@ -4,6 +4,7 @@ return {
   --tags
   chrome = dir .. '/google-chrome.svg',
   code = dir .. '/code-braces.svg',
+  terminal = dir .. '/terminal.svg',
   social = dir .. '/forum.svg',
   folder = dir .. '/folder.svg',
   music = dir .. '/music.svg',

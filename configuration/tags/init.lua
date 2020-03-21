@@ -10,6 +10,12 @@ local tags = {
     screen = 1
   },
   {
+    icon = icons.terminal,
+    type = 'terminal',
+    defaultApp = 'termite',
+    screen = 1
+  },
+  {
     icon = icons.code,
     type = 'code',
     defaultApp = 'code',
