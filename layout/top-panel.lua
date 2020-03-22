@@ -9,6 +9,7 @@ local TagList = require('widget.tag-list')
 local TaskList = require('widget.task-list')
 local clickable_container = require('widget.material.clickable-container')
 local mat_icon_button = require('widget.material.icon-button')
+local weather_widget = require("awesome-widgets.weather-widget.weather")
 
 local icons = require('theme.icons')
 
@@ -119,6 +120,7 @@ local TopPanel = function(s, offset)
     nil,
     {
       layout = wibox.layout.fixed.horizontal,
+      weather_widget({api_key = 'da1f3c25743ea88ae4cfa4b006e3eee0', city = '35954,US', font = "Roboto Mono bold 9"}),
       -- Clock
       clock_widget,
       -- Layout box
