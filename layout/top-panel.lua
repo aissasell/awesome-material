@@ -1,13 +1,14 @@
 local awful = require('awful')
 local beautiful = require('beautiful')
 local wibox = require('wibox')
-local TaskList = require('widget.task-list')
 local gears = require('gears')
+local mat_icon = require('widget.material.icon')
+local dpi = require('beautiful').xresources.apply_dpi
+local icons = require('theme.icons')
+local TagList = require('widget.tag-list')
+local TaskList = require('widget.task-list')
 local clickable_container = require('widget.material.clickable-container')
 local mat_icon_button = require('widget.material.icon-button')
-local mat_icon = require('widget.material.icon')
-
-local dpi = require('beautiful').xresources.apply_dpi
 
 local icons = require('theme.icons')
 
@@ -71,6 +72,14 @@ local LayoutBox = function(s)
 end
 
 local TopPanel = function(s, offset)
+  -- Clock / Calendar 24h format
+  local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 11">%H:%M</span>')
+
+  -- Clock / Calendar 12AM/PM fornat
+  -- local textclock = wibox.widget.textclock('<span font="Roboto Mono bold 11">%I\n%M</span>\n<span font="Roboto Mono bold 9">%p</span>')
+  -- textclock.forced_height = 56
+
+  local clock_widget = wibox.container.margin(textclock, dpi(8), dpi(8), dpi(13), dpi(13))
   local offsetx = 0
   if offset == true then
     offsetx = dpi(48)
@@ -110,8 +119,10 @@ local TopPanel = function(s, offset)
     nil,
     {
       layout = wibox.layout.fixed.horizontal,
+      -- Clock
+      clock_widget,
       -- Layout box
-      LayoutBox(s)
+      LayoutBox(s),
     }
   }
 
