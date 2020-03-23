@@ -81,6 +81,7 @@ local TopPanel = function(s, offset)
   -- textclock.forced_height = 56
 
   local clock_widget = wibox.container.margin(textclock, dpi(8), dpi(8), dpi(13), dpi(13))
+  local lang_widget = awful.widget.keyboardlayout()
   local offsetx = 0
   if offset == true then
     offsetx = dpi(48)
@@ -124,6 +125,7 @@ local TopPanel = function(s, offset)
       -- Clock
       clock_widget,
       -- Layout box
+      lang_widget,
       LayoutBox(s),
     }
   }
